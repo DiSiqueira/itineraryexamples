@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/disiqueira/itinerary"
-	"log"
 	"net/http"
 )
 
@@ -12,6 +11,6 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := itinerary.NewRouter()
-	r.HandleFunc(HomeHandler)
-	log.Fatal(http.ListenAndServe(":80", r))
+	r.NewPath(HomeHandler)
+	http.ListenAndServe(":8000", r)
 }
